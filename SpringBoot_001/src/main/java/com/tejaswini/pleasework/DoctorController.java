@@ -1,5 +1,6 @@
-package com.tejaswini.springboot_001;
+package com.tejaswini.pleasework;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -9,10 +10,20 @@ import java.util.Optional;
 
 @RestController
 public class DoctorController {
+    private final DoctorDAO doctorDAO;
+
+    public DoctorController(DoctorDAO doctorDAO) {
+        this.doctorDAO = doctorDAO;
+    }
+
     @PostMapping("/doctors")
     public Doctor createNewDoctorRecord(@RequestBody Doctor doctor) {
         // logic to add record in table will go here
-        return doctor;
+        Doctor d = null;
+        int added = doctorDAO.addDoctor(doctor);
+        if (added == 1)
+            return doctor;
+        return d;
     }
 
     @GetMapping("/doctors/{id}")

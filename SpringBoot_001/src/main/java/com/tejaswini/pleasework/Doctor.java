@@ -1,4 +1,4 @@
-package com.tejaswini.springboot_001;
+package com.tejaswini.pleasework;
 
 import lombok.*;
 
