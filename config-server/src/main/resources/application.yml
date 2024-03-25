@@ -5,8 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/bajrangkar/spring-cloud-config-store
+          uri: https://github.com/bajrangkar/microservices-course-on-youtube-config-store
           search-paths:
-            - '*service'
+            - 'service-config/*service'
           #username: root //not required for public repos
           #passphrase: 12345 //not required for public repos
