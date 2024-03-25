@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: discovery-service
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    #service-url:
+      #defaultZone: http://localhost:8760/eureka
+  datacenter: Colombo-SriLanka
+  environment: production
+server:
+  port: 8761
