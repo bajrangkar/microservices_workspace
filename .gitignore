@@ -6,3 +6,5 @@ open_cmd.bat
 microservices-course-on-youtube-master/
 */.mvn/
 */.idea/
+*/*/.mvn/
+*/*/.idea/
