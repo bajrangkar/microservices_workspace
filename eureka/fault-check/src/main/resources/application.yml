@@ -1,0 +1,16 @@
+resilience4j:
+  ratelimiter:
+    instances:
+      getMessageRateLimit:
+        limit-for-period: 2
+        limit-refresh-period: 5s
+        timeout-duration: 0
+  retry:
+    instances:
+      getInvoiceRetry:
+        max-attempts: 5
+        wait-duration: 2s
+        retry-exceptions:
+          - org.springframework.web.client.ResourceAccessException
+          - org.springframework.web.client.HttpClientErrorException
+
