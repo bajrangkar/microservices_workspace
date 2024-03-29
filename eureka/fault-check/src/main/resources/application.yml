@@ -13,4 +13,23 @@ resilience4j:
         retry-exceptions:
           - org.springframework.web.client.ResourceAccessException
           - org.springframework.web.client.HttpClientErrorException
-
+  circuitbreaker:
+    instances:
+      GetInvoiceCB:
+        automatic-transition-from-open-to-half-open-enabled: true
+        failure-rate-threshold: 10
+        minimum-number-of-calls: 2
+        permitted-number-of-calls-in-half-open-state: 2
+        sliding-window-size: 2
+        sliding-window-type: COUNT_BASED
+        wait-duration-in-open-state: 100s
+  bulkhead:
+    instances:
+      getMessageBH:
+        max-concurrent-calls: 1
+        max-wait-duration: 0
+  timelimiter:
+    instances:
+      getMessageTL:
+        cancel-running-future: false
+        timeout-duration: 1s
